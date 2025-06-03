@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler</title>
+    <link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+    <style>
+
+        *{/*διαχείριση και μορφοποίηση όλων των στοιχείων*/
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        #header,
+        .row,
+        #footer{/*διαχείριση και μορφοποίηση*/
+            display: flex;
+            flex-direction: row;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            justify-content: center;
+        }
+        
+        #header{/*διαχείριση header*/
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        a:link {/*διαχείριση και μορφοποίηση όλων των link*/
+            text-decoration: none;
+            padding: 10px;
+            font-family: sans-serif;
+            color: #48556B;
+        }
+
+        #logo{/*διαχείριση logo του header*/
+            padding-left: 10px;
+            padding-top: 8px;
+        }
+
+        #topnav{/*διαχείριση και μορφοποίηση topnav του header*/
+            display: flex;
+            justify-content: flex-end;      
+        }
+
+        #topnav > a{
+            text-transform: uppercase;
+            transition:background 400ms ease-in;
+            border-radius: 4px;
+        }
+
+        #topnav a:hover{
+			background-color: rgba(139, 137, 137, 0.493);
+			cursor: pointer;
+		}
+
+        #btn{/*button topnav*/
+            border-radius: 1px solid #48556B ;
+            padding: 8px;     
+        }
+
+        .menu{/*icon menu*/
+            width: 30px;
+            height: 40px;
+        }   
+
+        h1{
+            display: flex;
+            justify-content: center;
+            font-family: 'Charm', 'san-serif';
+            padding-top: 24px;
+            padding-bottom: 24px; 
+        }
+
+        h2{
+            padding: 14px;
+            margin-left: 16px;
+            font-family: 'Comfortaa', 'san-serif';
+        }
+
+        .hero{/* ftiaxnoume to hero image*/
+            background-image: url("island.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 200px;
+        }
+
+        ul{
+            list-style-type: none;
+            font-family: 'Comfortaa', 'san-serif';
+        }     
+
+        #our{/*διαχείριση και μορφοποίηση our island*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;   
+            margin-top: 16px;      
+            margin-bottom: 16px;
+        }
+
+        #ourdiv {/*διαχείριση και μορφοποίηση ενός εσωτερικού στοιχείου του our island*/
+            
+            text-align: center;
+            width: 458px;
+            font-family: 'Comfortaa', 'san-serif';
+            font-size: 16px;
+        }
+
+        .row{/*διαχείριση και μορφοποίηση στηλών της κατηγιορίας island*/
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .row > div{/*τα εσωτερικά στοιχεία του row να ειναι στο κέντρο*/
+            text-align: center;
+        }
+
+        .row  button{/*μορφοποίηση button*/
+            color: white;
+            background-color: #3D485B;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .row button:hover{
+            background-color: rgba(106, 116, 145, 0.692);
+            border: #3D485B;
+			cursor: pointer;
+        }
+
+        .cartel{/*διαχείριση και μορφοποίηση των καρτέλων του row*/
+            background-color: hsl(217, 76%, 97%);
+            margin: 20px;
+            width: 217px;
+            height: 230px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cartel > a{
+            display: flex;
+            justify-content: center;
+        }
+
+        .cartel  button{
+            color: white;
+            background-color: #3D485B;
+            padding: 0 10px;
+            margin-top: 1px;
+            border-radius: 5px;
+        }
+
+        .cartel > img{
+            width: 217px;
+            height: 160px;
+        }
+
+        .grIs{/*διαχείριση και μορφοποίηση λέξεων του cartel*/
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        .grIs > p{
+            font-size: 16px;
+        }   
+
+        .pfix{/*διαχείριση και μορφοποίηση λέξεων του cartel*/
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 10px;
+        } 
+
+        #best{/*διαχείριση και μορφοποίηση best travel*/
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: #d3d4d4a8;
+        }
+
+        .fixView {/*μορφοποίηση εσωτερικού πλαισίου στο best travel*/
+            height: 312px;
+            width: 360px;
+            margin: 24px 10px;
+            border-radius: 15px;
+        }
+
+        #best > div:first-child{
+            background-image: url("amorgos.jpg");
+            background-size: cover;
+        }
+
+        #best > div:nth-child(3){
+            background-image: url("mikonos.jpg");
+            background-size: cover;
+        }
+
+        #best > div:nth-child(2){
+            background-image: url("kalumnmos.jpg");
+            background-size: cover;
+        }
+
+        .fixView > div{
+            background-color: rgba(14, 34, 34, 0.37);
+            border-radius: 15px;
+            padding: 20px 10px;
+        }
+
+        .fixView{
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+            font-size: 24px;
+            flex-direction: column;
+            color: rgb(252, 252, 252);
+            background-color: #3d485bb4;
+        }
+
+        .bestText{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 16px;
+        }     
+
+        #endTra > h1{/*διαχείριση και μορφοποίηση του h1 του footer*/
+            background-color: #a6abb379;
+        }
+
+        #footer{
+            background-color: #9292922c;/*διαχείριση και μορφοποίηση footer*/
+            color: rgb(9, 10, 14);
+            display: flex;
+            justify-content: center;
+        }
+
+        #footer > div{
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #footer>div:not(:nth-child(3)){
+            border-right: 1px solid #fff;
+        }
+
+        #footer > div ul{
+            padding-top: 24px;
+            text-align: center;
+        }
+
+        #footer > div a{/*μορφοποίηση links στο footer*/
+            color: black;
+            font-family: 'Comfortaa','Charm';
+            flex-direction: column;
+        }
+
+        #quick{/*διαχείριση και μορφοποίηση των link στο footer*/
+            display: flex;
+            flex-direction: column;
+            margin: 0 25%;
+        }
+
+        #quick a:hover{/*μορφοποίηση links*/
+            background-color: rgba(139, 137, 137, 0.295);
+            border-radius: 5px;
+			cursor: pointer;
+        }
+        
+        #social{/*δημιουργία των social στο footer*/
+            display: flex;
+            justify-content: center;
+            padding-top: 48px;
+        }
+
+        #social > a {
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-width:600px) {
+
+            .myTopnav{
+                flex-direction: column;
+                font-size: 16px;
+
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                
+                background-color: rgb(211, 211, 211);
+
+                overflow: hidden;
+                max-height: 0;
+
+                text-align: start;
+                transition: 0.3s ease, padding 0.3s ease;
+            }
+            
+            .myTopnav.show {
+                max-height: 500px;
+                padding: 15px 20px;
+            }
+
+            .myTopnav > a{
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            #header{
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.829);
+            }
+
+            #logo{
+                text-align: center;
+            }
+
+            #logo > img{
+                width: 155px;
+                height: 50px;
+            }
+
+            #footer{
+                background-color: white;
+            }
+
+            .row{
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nameIs{
+                text-align: center;
+                background-color: #a4acbb17;
+                margin-left: 0%;
+            }
+            
+            #best{
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #best > div {
+                height: 287.53px;
+                width: 428px;
+            }
+
+            .s-cartel{
+                height: 257px;
+                width: 377px;
+            }
+
+            .s-cartel > img{
+                width: 377px;
+                height: 180px;
+            }
+            
+            .s-cartel button{
+                padding: 2px 12px;
+                margin-top: 4px;
+            }
+
+            .col-s-1{
+                width: 8.33333%;
+            }
+            .col-s-2{
+                width: 16.66666%;
+            }
+            .col-s-3{
+                width: 25%;
+            }
+            .col-s-4{
+                width: 33.33333%;
+            }
+            .col-s-5{
+                width: 41.66666%
+            }
+            .col-s-6{
+                width: 50%;
+            }
+            .col-s-7{
+                width: 58.33333%
+            }
+            .col-s-8{
+                width: 66.66666%;
+            }
+            .col-s-9{
+                width: 75%;
+            }
+            .col-s-10{
+                width: 83.33333%;
+            }
+            .col-s-11{
+                width: 91.66666%;
+            }
+            .col-s-12{
+                width: 100%;
+            }
+
+            .s-block {
+                display: block;
+            }
+            .s-inline-block{
+                display: inline-block;
+            }
+            .s-none{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:600px) and (max-width:768px){
+
+            .myTopnav{
+                align-items: end; 
+            }
+            
+            .myTopnav{
+                flex-direction: column;
+                font-size: 16px;
+
+                display: flex;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                
+                background-color: rgb(211, 211, 211);
+
+                overflow: hidden;
+                max-height: 0;
+
+                text-align: start;
+                transition: 0.3s ease, padding 0.3s ease;
+            }
+
+            .myTopnav.show {
+                max-height: 500px;
+                padding: 15px 20px;
+            }
+
+            #footer{
+                background-color: white;
+            }
+
+            #best > div {
+                height: 244.69px;
+                width: 233px;
+            }  
+
+            .m-cartel{
+                height: 257px;
+                width: 252px;
+            }
+
+            .m-cartel > img{
+                width: 252px;
+                height: 185px;
+            }
+
+            .m-cartel  button{
+                padding: 2px 10px;
+            }
+
+            .col-m-1{
+                width: 8.33333%;
+            }
+            .col-m-2{
+                width: 16.66666%;
+            }
+            .col-m-3{
+                width: 25%;
+            }
+            .col-m-4{
+                width: 33.33333%;
+            }
+            .col-m-5{
+                width: 41.66666%
+            }
+            .col-m-6{
+                width: 50%;
+            }
+            .col-m-7{
+                width: 58.33333%
+            }
+            .col-m-8{
+                width: 66.66666%;
+            }
+            .col-m-9{
+                width: 75%;
+            }
+            .col-m-10{
+                width: 83.33333%;
+            }
+            .col-m-11{
+                width: 91.66666%;
+            }
+            .col-m-12{
+                width: 100%;
+            }
+
+            .m-block {
+                display: block;
+            }
+            .m-inline-block{
+                display: inline-block;
+            }
+            .m-none{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:768px) {
+
+            .myTopnav{
+                align-items: end; 
+            }
+
+            .menu{
+                display: none;
+            }
+
+            .col-l-1{
+                width: 8.33333%;
+            }
+            .col-l-2{
+                width: 16.66666%;
+            }
+            .col-l-3{
+                width: 25%;
+            }
+            .col-l-4{
+                width: 33.33333%;
+            }
+            .col-l-5{
+                width: 41.66666%
+            }
+            .col-l-6{
+                width: 50%;
+            }
+            .col-l-7{
+                width: 58.33333%
+            }
+            .col-l-8{
+                width: 66.66666%;
+            }
+            .col-l-9{
+                width: 75%;
+            }
+            .col-l-10{
+                width: 83.33333%;
+            }
+            .col-l-11{
+                width: 91.66666%;
+            }
+            .col-l-12{
+                width: 100%;
+            }
+
+            .l-block {
+                display: block;
+            }
+            .l-inline-block{
+                display: inline-block;
+            }
+            .l-none{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="header">
+            <div id="logo">
+                <a href="#"><img src="logo.png" alt="logo" width="125px" height="35"></a>
+            </div> 
+            <div id="topnav" class="myTopnav">     
+                <a href="#">Home</a>
+                <a href="#">Cyclades</a>
+                <a href="#">Dodecanese</a>
+                <a href="#">Ionean</a>
+                <a href="#">Contant</a>
+                <a href="#"><button id="btn">Book Online</button></a>
+            </div> 
+            <img src="menu.png" alt="menu" class="menu" onclick="myMenu()">
+        </div>
+
+        
+        <div class="hero"></div>
+
+        <div id="our">
+            <h1>Our Island</h1> 
+            <div id="ourdiv">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, nostrum vitae. Explicabo facere aliquam earum ea animi iste tempora, sit quas accusantium sapiente, expedita, quasi necessitatibus beatae quae? Molestias, quam.</div>
+        </div>
+
+        <h1>Easter holiday on Greek Islands</h1>
+
+        <div class="island">
+            <div>
+                <h2 class="nameIs">CYCLADES</h2>
+            </div>
+            <div class="row">         
+                <div class="cartel s-cartel m-cartel">
+                    <img src="santorini.jpg" alt="santorini">
+                    <div class="grIs">
+                        <h3>Santorini</h3>
+                        <p>1380€</p>
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>
+                </div>
+
+                <div class="cartel s-cartel m-cartel">
+                    <img src="mikonos.jpg" alt="mikonos">
+                    <div class="grIs">
+                        <h3>Mikonos</h3>
+                        <p>1560€</p>
+                   </div>
+                   <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                   </div> 
+                </div>
+
+                <div class="cartel s-none m-none">
+                    <img src="amorgos.jpg" alt="amorgos">
+                    <div class="grIs">
+                        <h3>Amorgos</h3>
+                        <p>865€</p>
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>         
+               </div>
+
+                <div class="cartel s-none m-none">
+                    <img src="mhlos.jpg" alt="mhlos">
+                    <div class="grIs">
+                        <h3>Mhlos</h3>
+                        <p>675€</p>  
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>
+                 </div>
+            </div>
+        </div>  
+
+        <div class="island">
+            <div>
+                <h2 class="nameIs">DODECANESE</h2>
+            </div>
+            <div class="row">    
+                <div class="cartel s-cartel m-cartel">
+                    <img src="kalumnmos.jpg" alt="kalumnmos">
+                    <div class="grIs">
+                        <h3>Kalymnos</h3>
+                        <p id="gg">1180€</p>
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>
+                </div>
+                <div class="cartel s-cartel m-cartel">
+                    <img src="karpathos.jpg" alt="karpathos">
+                    <div class="grIs">
+                        <h3>Karpathos</h3>
+                        <p>865€</p>
+                   </div>
+                   <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div> 
+                </div>
+                <div class="cartel s-none m-none">
+                    <img src="paros.jpg" alt="paros">
+                    <div class="grIs">
+                        <h3>Paros</h3>
+                        <p>765€</p>
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>        
+               </div>
+                <div class="cartel s-none m-none">
+                    <img src="leros.jpg" alt="leros">
+                    <div class="grIs">
+                        <h3>Leros</h3>
+                        <p>675€</p>  
+                    </div>
+                    <div>
+                        <p class="pfix">4 Days</p> 
+                        <a href="#"><button>Book Now</button></a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+        <div id="endTra">
+            <h1>Best Travelling Island Destinations</h1>
+            <div id="best">
+                <div class="fixView col-s-6 col-m-4 col-l-4">
+                    <div>
+                        <ul>
+                            <li>Amorgos</li>
+                        </ul>
+                        <div class="bestText">
+                            <p>4 Days</p>
+                            <p>865€</p>
+                        </div>       
+                    </div>
+                </div>
+                <div class="fixView col-s-6 col-m-4 col-l-4">
+                    <div>
+                        <ul>
+                            <li>Kalymnos</li>
+                        </ul>
+                        <div class="bestText">
+                            <p>4 Days</p>
+                            <p>1180€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixView s-none m-none col-l-4">
+                    <div>
+                        <ul>
+                            <li>Mikonos</li>
+                        </ul>
+                        <div class="bestText">
+                                <p>4 Days</p>
+                                <p>1560€</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="s-none m-none col-l-4">
+                <h3>Quick Links</h3>     
+                <div>   
+                    <ul id="quick">
+                        <a href="#">Cyclades</a>
+                        <a href="#">Dodecanese</a>
+                        <a href="#">Ionean</a>
+                        <a href="#">Privacy & Policy</a>
+                        <a href="#">Term of Use</a>
+                    </ul>
+                </div>    
+            </div>
+            <div class="s-none m-none col-l-4">
+                <h3>Working Hours</h3>
+                <ul>
+                    <li>Monday-Friday:</li>
+                    <li>09:00 to 21:00</li>
+                </ul>
+                <ul>
+                    <li>Saturday:</li>
+                    <li>09:00 to 21:00</li>
+                </ul>
+            </div>
+            <div class="col-s-12 col-m-12 col-l-4">
+                <h3>Social Media</h3>
+                <div>
+                    <ul>
+                        <li>Panepistimiou 156 Av</li>
+                        <li>Athens</li>
+                        <li>210 0000000</li>
+                    </ul>
+                    <div id="social">
+                        <a href="#"><img src="instagram.png" width="24px"></a>
+                        <a href="#"><img src="facebook.png" width="24px"></a>
+                        <a href="#"><img src="twitter.png" width="24px"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function myMenu(){
+        document.getElementById("topnav").classList.toggle("show");
+    }
+</script>
+</html>
